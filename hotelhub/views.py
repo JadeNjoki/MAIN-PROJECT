@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Service, Room, Team, Testimonial, About
+from .models import Service, Room, Team, Testimonial, About, Slider, Booking
 
 
 def index(request):
@@ -80,8 +80,19 @@ def room_view(request):
 
 
 def slider_view(request):
-    sliders = Sliders.objects.all()  # Fetch all Slider objects
+    sliders = Slider.objects.all()  # Fetch all Slider objects
     return render(request, 'slider.html', {'sliders': sliders})
+
+def customers(request):
+    bookings= Booking.objects.all()
+    context={'bookings': bookings }
+    return render(request, 'customers.html', context)
+
+def layout(request):
+    return render(request, 'layout.html')
+
+
+
 
 
 

@@ -5,14 +5,15 @@ from hotelhub import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
-    path('services/', views.about, name='services'),
-    path('rooms/', views.about, name='rooms'),
-    path('bookings/', views.about, name='bookings'),
-    path('teams/', views.about, name='teams'),
-    path('testimonial/', views.about, name='testimonial'),
-    path('contact/', views.about, name='contact'),
-    path('Slider/', views.about, name='slider-view'),
-
+    path('services/', views.services, name='services'),
+    path('rooms/', views.rooms, name='rooms'),
+    path('bookings/', views.booking, name='bookings'),
+    path('teams/', views.team, name='teams'),
+    path('testimonial/', views.testimonials, name='testimonial'),
+    path('contact/', views.contact, name='contact'),
+    path('Slider/', views.Slider, name='slider-view'),
+    path('customers/', views.customers, name='customers'),
+    path('layout/' , views.layout, name='layout'),
 
 
 ]

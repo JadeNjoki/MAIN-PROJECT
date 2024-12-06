@@ -37,11 +37,11 @@ class Team(models.Model):
 class Testimonial(models.Model):
     name = models.CharField(max_length=100)
     review = models.TextField()
-    rating = models.IntegerField(default=5)
+    ratings = models.IntegerField(default=5)
     image = models.ImageField(upload_to='testimonials/', blank=True, null=True)
 
     def __str__(self):
-        return f"{self.name} ({self.rating}/5)"
+        return f"{self.name} ({self.ratings}/5)"
 
 class Booking(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
@@ -50,6 +50,7 @@ class Booking(models.Model):
     check_in_date = models.DateField()
     check_out_date = models.DateField()
     message = models.TextField(blank=True)
+    ratings = models.IntegerField(default=5)
 
     def __str__(self):
         return f"Booking by {self.guest_name} for {self.room.name}"
@@ -63,11 +64,11 @@ class Contact(models.Model):
     def __str__(self):
         return f"Message from {self.name}"
 
-    class Slider(models.Model):
-        title = models.CharField(max_length=100)
-        subtitle = models.CharField(max_length=200, blank=True, null=True)
-        image = models.ImageField(upload_to='slider/')
-        link = models.URLField(blank=True, null=True)  # Optional link for the slider
+class Slider(models.Model):
+    title = models.CharField(max_length=100)
+    subtitle = models.CharField(max_length=200, blank=True, null=True)
+    image = models.ImageField(upload_to='slider/')
+    link = models.URLField(blank=True, null=True)  # Optional link for the slider
 
-        def __str__(self):
-            return self.title
+    def __str__(self):
+        return self.title
